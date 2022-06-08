@@ -38,7 +38,7 @@
                             <td>{{$ad->nama_alternatif}}</td>
                             <td>{{$ad->keterangan}}</td>
                             <td>
-                                <a href="{{route('alternatif.edit',['id' => $ad->id])}}" class="btn btn-block btn-info">Ubah</a>
+                                <a href="{{route('alternatif.formedit',['id' => $ad->id])}}" class="btn btn-block btn-info">Ubah</a>
                                 <hr/>
                                 <form action="{{route('alternatif.delete',['id' => $ad->id])}}" method="POST">
                                     @csrf

@@ -1,22 +1,30 @@
 <?php
 
-namespace App\Http\Controllers\Alternatif;
+namespace App\Http\Controllers\Crip;
 
-use App\Alternatif;
+use App\Kriteria;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class AlternatifController extends Controller
+class CripController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $req)
     {
-        $alternatifData = Alternatif::all();
-        return view('alternatif.index',compact('alternatifData'));
+        $kriteria   = Kriteria::all();
+        $crips      = collect([]);
+
+        if ($req->k) {
+            $crips = Kriteria::find($req->k)->crip;
+        }
+        return view('crips.index')->with([
+            'kriteria'  => $kriteria,
+            'crips'     => $crips,
+        ]);
     }
 
     /**
@@ -26,7 +34,7 @@ class AlternatifController extends Controller
      */
     public function create()
     {
-        return view('alternatif.add');
+        //
     }
 
     /**
@@ -37,8 +45,7 @@ class AlternatifController extends Controller
      */
     public function store(Request $request)
     {
-        Alternatif::create($request->all());
-        return redirect(route('alternatif'))->with(['msg'=>'Alternatif ditambahkan']);
+        //
     }
 
     /**
@@ -60,8 +67,7 @@ class AlternatifController extends Controller
      */
     public function edit($id)
     {
-        $alternatifData = Alternatif::find($id);
-        return view('alternatif.edit',compact('alternatifData'));
+        //
     }
 
     /**
@@ -73,12 +79,7 @@ class AlternatifController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $update = Alternatif::find($id)
-            ->update($request->all());
-        if (!$update) {
-            return back();
-        }
-        return redirect(route('alternatif'))->with(['msg'=>'Alternatif diubah']);
+        //
     }
 
     /**
@@ -89,8 +90,6 @@ class AlternatifController extends Controller
      */
     public function destroy($id)
     {
-        Alternatif::destroy($id);
-        return redirect(route('alternatif'))->with(['msg'=>'Alternatif dihapus']);
+        //
     }
-
 }

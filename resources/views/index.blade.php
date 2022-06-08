@@ -63,11 +63,11 @@
                 <i class="fas fa-fw fa-cog"></i>
                 <span>Alternatif</span>
             </a>
-            <a class="nav-link" href="#" >
+            <a class="nav-link" href="{{route('kriteria')}}" >
                 <i class="fas fa-fw fa-cog"></i>
                 <span>Kriteria</span>
             </a>
-            <a class="nav-link" href="#" >
+            <a class="nav-link" href="{{route('crip')}}" >
                 <i class="fas fa-fw fa-cog"></i>
                 <span>Nilai Crips (Subkriteria)</span>
             </a>

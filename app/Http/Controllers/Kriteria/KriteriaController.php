@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Alternatif;
+namespace App\Http\Controllers\Kriteria;
 
-use App\Alternatif;
+use App\Kriteria;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class AlternatifController extends Controller
+class KriteriaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class AlternatifController extends Controller
      */
     public function index()
     {
-        $alternatifData = Alternatif::all();
-        return view('alternatif.index',compact('alternatifData'));
+        $kriteriaData = Kriteria::all();
+        return view('kriteria.index',compact('kriteriaData'));
     }
 
     /**
@@ -26,7 +26,7 @@ class AlternatifController extends Controller
      */
     public function create()
     {
-        return view('alternatif.add');
+        return view('kriteria.add');
     }
 
     /**
@@ -37,8 +37,11 @@ class AlternatifController extends Controller
      */
     public function store(Request $request)
     {
-        Alternatif::create($request->all());
-        return redirect(route('alternatif'))->with(['msg'=>'Alternatif ditambahkan']);
+        $add = Kriteria::create($request->all());
+        if (!$add) {
+            return back();
+        }
+        return redirect(route('kriteria'))->with(['msg'=>'Kriteria ditambahkan']);
     }
 
     /**
@@ -60,8 +63,8 @@ class AlternatifController extends Controller
      */
     public function edit($id)
     {
-        $alternatifData = Alternatif::find($id);
-        return view('alternatif.edit',compact('alternatifData'));
+        $kriteriaData = Kriteria::find($id);
+        return view('kriteria.edit',compact('kriteriaData'));
     }
 
     /**
@@ -73,12 +76,12 @@ class AlternatifController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $update = Alternatif::find($id)
+        $update = Kriteria::find($id)
             ->update($request->all());
         if (!$update) {
             return back();
         }
-        return redirect(route('alternatif'))->with(['msg'=>'Alternatif diubah']);
+        return redirect(route('kriteria'))->with(['msg'=>'Kriteria diubah']);
     }
 
     /**
@@ -89,8 +92,7 @@ class AlternatifController extends Controller
      */
     public function destroy($id)
     {
-        Alternatif::destroy($id);
-        return redirect(route('alternatif'))->with(['msg'=>'Alternatif dihapus']);
+        Kriteria::destroy($id);
+        return redirect(route('kriteria'))->with(['msg'=>'Kriteria dihapus']);;
     }
-
 }

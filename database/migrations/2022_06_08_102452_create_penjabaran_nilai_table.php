@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateNilaiAlternatifTable extends Migration
+class CreatePenjabaranNilaiTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateNilaiAlternatifTable extends Migration
      */
     public function up()
     {
-        Schema::create('nilai_alternatif', function (Blueprint $table) {
-            $table->increments('id');
-            $table->unsignedInteger('alternatif_id')->index()->nullable();
-            $table->unsignedInteger('crip_id')->index()->nullable();
-//            $table->timestamps();
+        Schema::create('penjabaran_nilai', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->unsignedBigInteger('alternatif_id')->index()->nullable();
+            $table->unsignedBigInteger('crip_id')->index()->nullable();
             $table->foreign('alternatif_id')
                 ->references('id')
                 ->on('alternatif')
@@ -37,6 +36,6 @@ class CreateNilaiAlternatifTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('nilai_alternatif');
+        Schema::dropIfExists('penjabaran_nilai');
     }
 }

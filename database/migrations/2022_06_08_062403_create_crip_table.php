@@ -15,7 +15,7 @@ class CreateCripTable extends Migration
     {
         Schema::create('crip', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedInteger('kriteria_id')->index()->nullable();
+            $table->unsignedBigInteger('kriteria_id')->index()->nullable();
             $table->string('nama_crip');
             $table->integer('nilai_crip');
             $table->timestamps();

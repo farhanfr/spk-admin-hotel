@@ -14,7 +14,7 @@ class CreateAlternatifTable extends Migration
     public function up()
     {
         Schema::create('alternatif', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id');
             $table->string('kode_alternatif')->unique();
             $table->string('nama_alternatif');
             $table->text('keterangan')->nullable();

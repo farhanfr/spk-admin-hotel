@@ -44,6 +44,14 @@ class PerhitunganController extends Controller
             }
         };
 
+        $bobot = [];
+        $rangking = [];
+        $total = 0;
+
+        foreach ($kriteria as $krit){
+            $bobot[$krit->id] = $krit->bobot;
+        }
+
         return view('perhitungan.index')->with([
             'kriterias' => $kriteria,
             'alternatif' => $alternatif,

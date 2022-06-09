@@ -8,10 +8,10 @@ class Alternatif extends Model
 {
     protected $table        = 'alternatif';
     protected $fillable     = ['kode_alternatif','nama_alternatif','keterangan'];
-    public $timestamps = false;
+    public $timestamps = FALSE;
 
-    public function relateCrip()
+    public function crip()
     {
-        return $this->belongsToMany(Crip::class,'nilai_alternatif','alternatif_id','crip_id');
+        return $this->belongsToMany(Crip::class,'penjabaran_nilai','alternatif_id','crip_id');
     }
 }

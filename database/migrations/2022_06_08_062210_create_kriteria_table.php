@@ -18,7 +18,7 @@ class CreateKriteriaTable extends Migration
             $table->string('kode')->unique();
             $table->string('nama');
             $table->enum('atribut',['cost','benefit']);
-            $table->integer('bobot');
+            $table->double('bobot');
         });
     }
 

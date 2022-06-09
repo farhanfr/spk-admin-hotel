@@ -8,7 +8,7 @@ class Kriteria extends Model
 {
     protected $table        = 'kriteria';
     protected $fillable     = ['kode','nama','atribut','bobot'];
-    public $timestamps = false;
+    public $timestamps = FALSE;
 
     public function crip() {
         return $this->hasMany(\App\Crip::class);

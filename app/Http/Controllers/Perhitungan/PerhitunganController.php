@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Alternatif;
+namespace App\Http\Controllers\Perhitungan;
 
 use App\Alternatif;
+use App\Kriteria;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class AlternatifController extends Controller
+class PerhitunganController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +16,40 @@ class AlternatifController extends Controller
      */
     public function index()
     {
-        $alternatifData = Alternatif::all();
-        return view('alternatif.index',compact('alternatifData'));
+        $kriteria = Kriteria::all();
+        $alternatif = Alternatif::all();
+        $penjabaran = Alternatif::with(['crip'])->get();
+
+        $kode_krit = [];
+        foreach ($kriteria as $krit)
+        {
+            $kode_krit[$krit->id] = [];
+            foreach ($alternatif as $al)
+            {
+                foreach ($al->crip as $crip)
+                {
+                    if ($crip->kriteria->id == $krit->id)
+                    {
+                        $kode_krit[$krit->id][] = $crip->nilai_crip;
+                    }
+                }
+            }
+
+            if ($krit->atribut == 'cost')
+            {
+                $kode_krit[$krit->id] = min($kode_krit[$krit->id]);
+            } elseif ($krit->atribut == 'benefit')
+            {
+                $kode_krit[$krit->id] = max($kode_krit[$krit->id]);
+            }
+        };
+
+        return view('perhitungan.index')->with([
+            'kriterias' => $kriteria,
+            'alternatif' => $alternatif,
+            'penjabaran' => $penjabaran,
+            'kode_krit'     => $kode_krit
+        ]);
     }
 
     /**
@@ -26,7 +59,7 @@ class AlternatifController extends Controller
      */
     public function create()
     {
-        return view('alternatif.add');
+        //
     }
 
     /**
@@ -37,8 +70,7 @@ class AlternatifController extends Controller
      */
     public function store(Request $request)
     {
-        $alternatif = Alternatif::create($request->all())->id;
-        return redirect(route('penjabaran.formadd',['id' => $alternatif]));
+        //
     }
 
     /**
@@ -60,8 +92,7 @@ class AlternatifController extends Controller
      */
     public function edit($id)
     {
-        $alternatifData = Alternatif::find($id);
-        return view('alternatif.edit',compact('alternatifData'));
+        //
     }
 
     /**
@@ -73,12 +104,7 @@ class AlternatifController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $update = Alternatif::find($id)
-            ->update($request->all());
-        if (!$update) {
-            return back();
-        }
-        return redirect(route('alternatif'))->with(['msg'=>'Alternatif diubah']);
+        //
     }
 
     /**
@@ -89,8 +115,6 @@ class AlternatifController extends Controller
      */
     public function destroy($id)
     {
-        Alternatif::destroy($id);
-        return redirect(route('alternatif'))->with(['msg'=>'Alternatif dihapus']);
+        //
     }
-
 }

@@ -78,13 +78,13 @@
             </a>
         </li>
         <li class="nav-item {{\Illuminate\Support\Facades\Request::segment(1) == 'penjabaran' ? 'active' : ''}}">
-            <a class="nav-link" href="#" >
+            <a class="nav-link" href="{{route('penjabaran')}}" >
                 <i class="fas fa-fw fa-cog"></i>
                 <span>Penjabaran Data</span>
             </a>
         </li>
         <li class="nav-item {{\Illuminate\Support\Facades\Request::segment(1) == 'perhitungan' ? 'active' : ''}}">
-            <a class="nav-link" href="#" >
+            <a class="nav-link" href="{{route('perhitungan')}}" >
                 <i class="fas fa-fw fa-cog"></i>
                 <span>Perhitungan</span>
             </a>

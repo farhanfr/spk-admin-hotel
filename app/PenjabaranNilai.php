@@ -8,7 +8,7 @@ class PenjabaranNilai extends Model
 {
     protected $table        = 'nilai_alternatif';
     protected $fillable     = ['alternatif_id','crip_id'];
-    public $timestamps = false;
+    public $timestamps = FALSE;
 
     public function crip() {
         return $this->belongsTo(\App\Crip::class,'crip_id');

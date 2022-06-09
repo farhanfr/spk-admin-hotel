@@ -25,7 +25,7 @@
                             <div style="float: left;margin-right: 10px">
                                 <form action="{{route('crip')}}" method="get">
                                 @foreach($kriteria as $kr)
-                                <button type="submit" name="kriteria" class="btn btn-warning" onclick="{{request('kriteria')}}" value="{{$kr->id}}">{{$kr->kode}}</button>
+                                <button type="submit" name="kriteria" class="btn btn-warning" onclick="{{request('kriteria')}}" value="{{$kr->id}}">{{$kr->kode}} - {{$kr->nama}}</button>
                                 @endforeach
                                 </form>
                             </div>

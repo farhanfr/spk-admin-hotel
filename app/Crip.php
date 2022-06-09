@@ -8,7 +8,7 @@ class Crip extends Model
 {
     protected $table        = 'crip';
     protected $fillable     = ['nama_crip','nilai_crip'];
-    public $timestamps = false;
+    public $timestamps = FALSE;
 
     public function kriteria() {
         return $this->belongsTo(Kriteria::class,'kriteria_id');

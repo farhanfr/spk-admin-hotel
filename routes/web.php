@@ -47,6 +47,21 @@ Route::prefix('/crip')->group(function ()
     Route::post('/delete/{id}', 'Crip\CripController@destroy')->name('crip.delete');
 });
 
+Route::prefix('/penjabaran')->group(function ()
+{
+    Route::get('/', 'Penjabaran\PenjabaranController@index')->name('penjabaran');
+    Route::get('/formadd/{id}', 'Penjabaran\PenjabaranController@create')->name('penjabaran.formadd');
+    Route::post('/add/{id}', 'Penjabaran\PenjabaranController@store')->name('penjabaran.add');
+    Route::get('/formupdate/{id}', 'Penjabaran\PenjabaranController@edit')->name('penjabaran.formedit');
+    Route::post('/edit/{id}', 'Penjabaran\PenjabaranController@update')->name('penjabaran.update');
+//    Route::post('/delete/{id}', 'Penjabaran\PenjabaranController@destroy')->name('penjabaran.delete');
+});
+
+Route::prefix('/perhitungan')->group(function ()
+{
+    Route::get('/', 'Perhitungan\PerhitunganController@index')->name('perhitungan');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

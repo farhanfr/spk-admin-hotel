@@ -18,38 +18,53 @@
                         </button>
                     </div>
                 @endif
-
-{{--                <a href="{{route('alternatif.formtambah')}}" class="btn btn-success">Tambah Alternatif</a>--}}
-{{--                <hr/>--}}
-{{--                <div class="table-responsive">--}}
-{{--                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">--}}
-{{--                        <thead>--}}
-{{--                        <tr>--}}
-{{--                            <th>Kode</th>--}}
-{{--                            <th>Nama</th>--}}
-{{--                            <th>Deskripsi</th>--}}
-{{--                            <th>Aksi</th>--}}
-{{--                        </tr>--}}
-{{--                        </thead>--}}
-{{--                        <tbody>--}}
-{{--                        @foreach($alternatifData as $ad)--}}
-{{--                            <tr>--}}
-{{--                                <td>{{$ad->kode_alternatif}}</td>--}}
-{{--                                <td>{{$ad->nama_alternatif}}</td>--}}
-{{--                                <td>{{$ad->keterangan}}</td>--}}
-{{--                                <td>--}}
-{{--                                    <a href="{{route('alternatif.formedit',['id' => $ad->id])}}" class="btn btn-block btn-info">Ubah</a>--}}
-{{--                                    <hr/>--}}
-{{--                                    <form action="{{route('alternatif.delete',['id' => $ad->id])}}" method="POST">--}}
-{{--                                        @csrf--}}
-{{--                                        <button type="submit" class="btn btn-block btn-danger">Hapus</button>--}}
-{{--                                    </form>--}}
-{{--                                </td>--}}
-{{--                            </tr>--}}
-{{--                        @endforeach--}}
-{{--                        </tbody>--}}
-{{--                    </table>--}}
-{{--                </div>--}}
+                <h4>Kriteria tersedia :</h4>
+                @if($kriteria->isEmpty())
+                    <h5>Silahkan isi kriteria terlebih dahulu</h5>
+                    @else
+                            <div style="float: left;margin-right: 10px">
+                                <form action="{{route('crip')}}" method="get">
+                                @foreach($kriteria as $kr)
+                                <button type="submit" name="kriteria" class="btn btn-warning" onclick="{{request('kriteria')}}" value="{{$kr->id}}">{{$kr->kode}}</button>
+                                @endforeach
+                                </form>
+                            </div>
+                    @endif
+                    <div>
+                <br/><br/>
+                    </div>
+                <hr/>
+                <div class="table-responsive">
+                    <a href="{{route('crip.formadd')}}" class="btn btn-success">Tambah Crips</a>
+                    <br/><br/>
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                        <tr>
+                            <th>Kriteria</th>
+                            <th>Sub Kriteria</th>
+                            <th>Nilai</th>
+                            <th>Aksi</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($crips as $c)
+                            <tr>
+                                <td>{{$c->kriteria->nama}}</td>
+                                <td>{{$c->nama_crip}}</td>
+                                <td>{{$c->nilai_crip}}</td>
+                                <td>
+                                    <a href="{{route('crip.formedit',['id' => $c->id])}}" class="btn btn-block btn-info">Ubah</a>
+                                    <hr/>
+                                    <form action="{{route('crip.delete',['id' => $c->id])}}" method="POST">
+                                        @csrf
+                                        <button type="submit" class="btn btn-block btn-danger">Hapus</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

@@ -40,11 +40,11 @@ Route::prefix('/kriteria')->group(function ()
 Route::prefix('/crip')->group(function ()
 {
     Route::get('/', 'Crip\CripController@index')->name('crip');
-//    Route::get('/formadd', 'Kriteria\KriteriaController@create')->name('kriteria.formadd');
-//    Route::post('/add', 'Kriteria\KriteriaController@store')->name('kriteria.add');
-//    Route::get('/formupdate/{id}', 'Kriteria\KriteriaController@edit')->name('kriteria.edit');
-//    Route::post('/edit/{id}', 'Kriteria\KriteriaController@update')->name('kriteria.update');
-//    Route::post('/delete/{id}', 'Kriteria\KriteriaController@destroy')->name('kriteria.delete');
+    Route::get('/formadd', 'Crip\CripController@create')->name('crip.formadd');
+    Route::post('/add', 'Crip\CripController@store')->name('crip.add');
+    Route::get('/formupdate/{id}', 'Crip\CripController@edit')->name('crip.formedit');
+    Route::post('/edit/{id}', 'Crip\CripController@update')->name('crip.update');
+    Route::post('/delete/{id}', 'Crip\CripController@destroy')->name('crip.delete');
 });
 
 Auth::routes();

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Crip;
 
+use App\Crip;
 use App\Kriteria;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -18,9 +19,11 @@ class CripController extends Controller
         $kriteria   = Kriteria::all();
         $crips      = collect([]);
 
-        if ($req->k) {
-            $crips = Kriteria::find($req->k)->crip;
+        if ($req->kriteria) {
+            $crips = Kriteria::find($req->kriteria)->crip;
+
         }
+//        echo $crips;
         return view('crips.index')->with([
             'kriteria'  => $kriteria,
             'crips'     => $crips,
@@ -34,7 +37,8 @@ class CripController extends Controller
      */
     public function create()
     {
-        //
+        $kriteria = Kriteria::all();
+        return view('crips.add',['kriteria' => $kriteria]);
     }
 
     /**
@@ -45,7 +49,13 @@ class CripController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $kriteria = Kriteria::find($request->kriteria);
+        $saveCrip = $kriteria->crip()->create($request->except(['kriteria']));
+        if (!$saveCrip)
+        {
+            return back();
+        }
+        return redirect(route('crip'))->with(['msg'=>'Crip Ditambahkan']);
     }
 
     /**
@@ -67,7 +77,12 @@ class CripController extends Controller
      */
     public function edit($id)
     {
-        //
+        $kriteria   = Kriteria::all();
+        $crip       = Crip::find($id);
+        return view('crips.edit',[
+            'kriteria'  => $kriteria,
+            'crip'     => $crip,
+        ]);
     }
 
     /**
@@ -79,7 +94,15 @@ class CripController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $krit = Kriteria::find((int) $request->kriteria);
+        $crip = Crip::find($id);
+        $updated = $crip->update($request->except(['kriteria']));
+        if ($updated)
+        {
+            $crip->kriteria()->associate($krit)->save();
+            return redirect(route('crip')."?kriteria=".$request->kriteria)->with(['msg'=>'Crip Diubah']);;
+        }
+        return back();
     }
 
     /**
@@ -90,6 +113,7 @@ class CripController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $crip = Crip::destroy($id);
+        return redirect(route('crip'))->with(['msg'=>'Crip Dihapus']);
     }
 }

@@ -10,7 +10,7 @@ class Kriteria extends Model
     protected $fillable     = ['kode','nama','atribut','bobot'];
     public $timestamps = false;
 
-    public function relateCrip() {
+    public function crip() {
         return $this->hasMany(\App\Crip::class);
     }
 }

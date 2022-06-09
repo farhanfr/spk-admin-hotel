@@ -89,7 +89,7 @@
             </div>
             <!-- Card Body -->
             <div class="card-body">
-                test
+                Selamat datang di Admin Panel Sistem Pendukung Keputusan Rekomendasi Hotel di Malang
             </div>
         </div>
     </div>

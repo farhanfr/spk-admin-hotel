@@ -22,6 +22,7 @@ class CreateCripTable extends Migration
             $table->foreign('kriteria_id')
                 ->references('id')
                 ->on('kriteria')
+                ->onDelete('cascade')
                 ->onUpdate('cascade');
         });
     }

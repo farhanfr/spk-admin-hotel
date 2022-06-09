@@ -43,7 +43,7 @@
         <hr class="sidebar-divider my-0">
 
         <!-- Nav Item - Dashboard -->
-        <li class="nav-item active">
+        <li class="nav-item {{\Illuminate\Support\Facades\Request::segment(1) == 'dashboard' ? 'active' : ''}}">
             <a class="nav-link" href="{{url('/dashboard')}}">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Dashboard</span></a>
@@ -58,29 +58,37 @@
         </div>
 
         <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item">
-            <a class="nav-link" href="{{route('alternatif')}}">
-                <i class="fas fa-fw fa-cog"></i>
-                <span>Alternatif</span>
-            </a>
+
+        <li class="nav-item {{\Illuminate\Support\Facades\Request::segment(1) == 'kriteria' ? 'active' : ''}}">
             <a class="nav-link" href="{{route('kriteria')}}" >
                 <i class="fas fa-fw fa-cog"></i>
                 <span>Kriteria</span>
             </a>
+        </li>
+        <li class="nav-item {{\Illuminate\Support\Facades\Request::segment(1) == 'crip' ? 'active' : ''}}">
             <a class="nav-link" href="{{route('crip')}}" >
                 <i class="fas fa-fw fa-cog"></i>
                 <span>Nilai Crips (Subkriteria)</span>
             </a>
-
+        </li>
+        <li class="nav-item {{\Illuminate\Support\Facades\Request::segment(1) == 'alternatif' ? 'active' : ''}}">
+            <a class="nav-link  " href="{{route('alternatif')}}">
+                <i class="fas fa-fw fa-cog"></i>
+                <span>Alternatif</span>
+            </a>
+        </li>
+        <li class="nav-item {{\Illuminate\Support\Facades\Request::segment(1) == 'penjabaran' ? 'active' : ''}}">
             <a class="nav-link" href="#" >
                 <i class="fas fa-fw fa-cog"></i>
                 <span>Penjabaran Data</span>
             </a>
-
+        </li>
+        <li class="nav-item {{\Illuminate\Support\Facades\Request::segment(1) == 'perhitungan' ? 'active' : ''}}">
             <a class="nav-link" href="#" >
                 <i class="fas fa-fw fa-cog"></i>
                 <span>Perhitungan</span>
             </a>
+        </li>
 
 {{--            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">--}}
 {{--                <div class="bg-white py-2 collapse-inner rounded">--}}

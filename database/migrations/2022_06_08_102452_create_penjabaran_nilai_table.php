@@ -25,6 +25,7 @@ class CreatePenjabaranNilaiTable extends Migration
             $table->foreign('crip_id')
                 ->references('id')
                 ->on('crip')
+                ->onDelete('cascade')
                 ->onUpdate('cascade');
         });
     }

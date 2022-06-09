@@ -11,11 +11,21 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/','Common\CommonController@index');
 
-Route::get('/dashboard','Dashboard\DashboardController@index');
+Route::get('/dashboard','Dashboard\DashboardController@index')->name('dashboard');
+
+Route::prefix('/common')->group(function ()
+{
+    Route::get('/formlogin','Common\CommonController@index')->name('common.formlogin');
+    Route::post('/login', 'Common\CommonController@login')->name('common.login');
+    Route::get('/logout', 'Common\CommonController@logout')->name('common.logout');
+//    Route::get('/formadd', 'Alternatif\AlternatifController@create')->name('alternatif.formtambah');
+//    Route::post('/add', 'Alternatif\AlternatifController@store')->name('alternatif.add');
+//    Route::get('/formupdate/{id}', 'Alternatif\AlternatifController@edit')->name('alternatif.formedit');
+//    Route::post('/edit/{id}', 'Alternatif\AlternatifController@update')->name('alternatif.update');
+//    Route::post('/delete/{id}', 'Alternatif\AlternatifController@destroy')->name('alternatif.delete');
+});
 
 Route::prefix('/alternatif')->group(function ()
 {

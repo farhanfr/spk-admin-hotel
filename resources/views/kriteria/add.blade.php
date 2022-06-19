@@ -30,7 +30,7 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="bobot">Masukkan Bobot <span class="text-danger">*</span></label>
+                        <label for="bobot">Masukkan Bobot (Tipe nilai bobot koma)<span class="text-danger">*</span></label>
                         <input type="text" name="bobot" class="form-control">
                     </div>
                     <div class="float-right">

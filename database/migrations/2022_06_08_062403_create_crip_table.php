@@ -17,7 +17,7 @@ class CreateCripTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('kriteria_id')->index()->nullable();
             $table->string('nama_crip');
-            $table->integer('nilai_crip');
+            $table->double('nilai_crip');
             $table->timestamps();
             $table->foreign('kriteria_id')
                 ->references('id')

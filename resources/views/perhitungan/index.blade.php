@@ -12,7 +12,7 @@
             <div class="card-body">
                 <h4>Data Kriteria</h4>
                 <div class="table-responsive">
-                    <table class="table table-bordered"width="100%" cellspacing="0">
+                    <table class="table table-bordered" width="100%" cellspacing="0">
                         <thead>
                         <tr>
                             <th>Kode</th>
@@ -108,7 +108,7 @@
                         </tbody>
                     </table>
                 </div>
-                <h4>Normalisasi</h4>
+                <h4>Menentukan Skor Ternormalisasi</h4>
                 <div class="table-responsive">
                     <table class="table table-bordered" width="100%" cellspacing="0">
                         <thead>
@@ -122,61 +122,156 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @php $rangking = []; @endphp
                         @foreach($alternatif as $data)
                             <tr>
                                 <td>{{$data->kode_alternatif}}</td>
                                 @php $total = 0;@endphp
                                 @foreach($data->crip as $crip)
-                                    @if($crip->kriteria->atribut == 'cost')
-                                        <?php $normalisasi = ($kode_krit[$crip->kriteria->id]/$crip->nilai_crip); ?>
-                                    @elseif($crip->kriteria->atribut == 'benefit')
-                                        <?php $normalisasi = ($crip->nilai_crip/$kode_krit[$crip->kriteria->id]); ?>
-                                    @endif
-                                    @php $total = $total+($bobot[$crip->kriteria->id]*$normalisasi);@endphp
+                                    <?php $normalisasi = ($crip->nilai_crip / sqrt($kode_krit[$crip->kriteria->id])); ?>
                                     <td>{{$normalisasi}}</td>
                                 @endforeach
-                                @php $rangking[] = [
-                                    'kode'  => $data->kode_alternatif,
-                                    'nama'  => $data->nama_alternatif,
-                                    'total' => $total
-                                ]; @endphp
                             </tr>
                         @endforeach
                         </tbody>
                     </table>
                 </div>
-                <h4>Perangkingan</h4>
+                <h4>Menentukan Skor Ternormalisasi Terbobot</h4>
                 <div class="table-responsive">
                     <table class="table table-bordered" width="100%" cellspacing="0">
                         <thead>
                         <tr>
-                            <th>Kode Alternatif</th>
-                            <th>Nama Alternatif</th>
-                            <th>Total</th>
-                            <th>Peringkat / Rangking</th>
+                            <th class="text-center">Kode Kriteria & Alternatif</th>
+                            @php $bobot = [] @endphp
+                            @foreach($kriterias as $krit)
+                                <?php $bobot[$krit->id] = $krit->bobot ?>
+                                <th class="text-center">{{$krit->kode}}</th>
+                            @endforeach
                         </tr>
                         </thead>
                         <tbody>
-                        @php
-                        usort($rangking, function($a, $b)
-                        {
-                            return $b['total'] <=> $a['total'];
-                        });
-
-                        $rank = 1;
-                        @endphp
-                        @foreach($rangking as $t)
+                        @foreach($alternatif as $data)
                             <tr>
-                                <td>{{$t['kode']}}</td>
-                                <td>{{$t['nama']}}</td>
-                                <td>{{$t['total']}}</td>
-                                <td>{{$rank++}}</td>
+                                <td>{{$data->kode_alternatif}}</td>
+                                @foreach($data->crip as $crip)
+                                    @php
+                                        $normalisasi = ($crip->nilai_crip / sqrt($kode_krit[$crip->kriteria->id]));
+                                        $normalisasiBobot = $normalisasi * $bobot[$crip->kriteria->id];
+                                    @endphp
+                                    <td>{{$normalisasiBobot}}</td>
+                                @endforeach
                             </tr>
                         @endforeach
                         </tbody>
                     </table>
                 </div>
+                <h4>Menentukan Solusi Ideal Positif</h4>
+                <div class="table-responsive">
+                    <table class="table table-bordered" width="100%" cellspacing="0">
+                        <thead>
+                        <tr>
+                            <th class="text-center">Criteria</th>
+                            <th class="text-center">Value</th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @php $solusiIdealPositifArray = [] @endphp
+                        @foreach($kriterias as $data)
+                            @php $solusiIdealPositif = [] @endphp
+                            <tr>
+                                <td>{{$data->kode}}</td>
+                                @foreach($data->crip as $crip)
+                                    @php
+                                        $normalisasi = ($crip->nilai_crip / sqrt($kode_krit[$crip->kriteria->id]));
+                                        $normalisasiBobot = $normalisasi * $bobot[$crip->kriteria->id];
+                                        $solusiIdealPositif[$data->id][] = $normalisasi * $bobot[$crip->kriteria->id];
+                                    @endphp
+                                @endforeach
+                                @php
+                                    if ($data->atribut == 'cost'){
+                                        $solusiIdealPositif[$data->id] = min($solusiIdealPositif[$data->id]);
+                                    }elseif ($data->atribut == 'benefit'){
+                                        $solusiIdealPositif[$data->id] = max($solusiIdealPositif[$data->id]);
+                                    }
+                                    $solusiIdealPositifArray[$data->id] = [
+                                        'id_solusiIdeal'=> $data->id,
+                                        'solusiIdeal'=> $solusiIdealPositif[$data->id]
+                                        ];
+                                @endphp
+                                <td>{{$solusiIdealPositif[$data->id] }}</td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                </div>
+                <h4>Menentukan Solusi Ideal Negatif</h4>
+                <div class="table-responsive">
+                    <table class="table table-bordered" width="100%" cellspacing="0">
+                        <thead>
+                        <tr>
+                            <th class="text-center">Criteria</th>
+                            <th class="text-center">Value</th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        @foreach($kriterias as $data)
+                            @php $solusiIdealNegatif = [] @endphp
+                            <tr>
+                                <td>{{$data->kode}}</td>
+                                @foreach($data->crip as $crip)
+                                    @php
+                                        $normalisasi = ($crip->nilai_crip / sqrt($kode_krit[$crip->kriteria->id]));
+                                        $normalisasiBobot = $normalisasi * $bobot[$crip->kriteria->id];
+                                        $solusiIdealNegatif[$data->id][] = $normalisasi * $bobot[$crip->kriteria->id];
+                                    @endphp
+                                @endforeach
+                                @php
+                                    if ($data->atribut == 'cost'){
+                                        $solusiIdealNegatif[$data->id] = max($solusiIdealNegatif[$data->id]);
+                                    }elseif ($data->atribut == 'benefit'){
+                                        $solusiIdealNegatif[$data->id] = min($solusiIdealNegatif[$data->id]);
+                                    }
+                                @endphp
+                                <td>{{$solusiIdealNegatif[$data->id] }}</td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                </div>
+                <h4>Menghitung Jarak Alternatif dengan Solusi Ideal Positif</h4>
+                <div class="table-responsive">
+                    <table class="table table-bordered" width="100%" cellspacing="0">
+                        <thead>
+                        <tr>
+                            <th class="text-center">D+</th>
+                            <th class="text-center">value</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+{{--                        @php $totalPositif = array() @endphp--}}
+{{--                        @foreach($alternatif as $data)--}}
+{{--                            @php $totalPositif = []  @endphp--}}
+{{--                            <tr>--}}
+{{--                                <td>D{{$data->id}}+</td>--}}
+{{--                                @foreach($data->crip as $crip)--}}
+{{--                                    @php--}}
+{{--                                        $totalPositif[$data->id][] += pow(($solusiIdealPositifArray[$crip->id]),2)--}}
+{{--                                    @endphp--}}
+{{--                                @endforeach--}}
+{{--                                @php--}}
+{{--                                    $hasilSolusi1[$data->id] = sqrt($totalPositif[$data->id]);--}}
+{{--                                    @endphp--}}
+{{--                                <td>{{$hasilSolusi1[$data->id]}}</td>--}}
+{{--                            </tr>--}}
+{{--                        @endforeach--}}
+                        </tbody>
+                    </table>
+                </div>
+                <h4>Menghitung Jarak Alternatif dengan Solusi Ideal Negatif</h4>
+                <h4>Menghitung Skor Akhir untuk Setiap Alternatif</h4>
             </div>
         </div>
     </div>

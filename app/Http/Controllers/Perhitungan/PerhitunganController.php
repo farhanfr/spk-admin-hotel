@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Perhitungan;
 
 use App\Alternatif;
+use App\Crip;
 use App\Kriteria;
+use App\PenjabaranNilai;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -17,47 +19,79 @@ class PerhitunganController extends Controller
     public function index()
     {
         $kriteria = Kriteria::all();
+        foreach ($kriteria as $keyK => $dataK) {
+            $kriteriaId[] = $dataK->id;
+        }
+        $crip = Crip::all();
+        foreach ($crip as $keyK => $dataCr) {
+            $cripId[] = $dataCr->id;
+        }
         $alternatif = Alternatif::all();
-        $penjabaran = Alternatif::with(['crip'])->get();
+        foreach ($alternatif as $keyK => $dataAl) {
+            $alternatifId[] = $dataAl->id;
+        }
+
+        $alterCrip= Alternatif::with(['crip'])->get();
+        $penjabaranNilai = PenjabaranNilai::with(['crip','alternatif'])->get();
+
+
+        $jmlh_kriteria = $kriteria->count();
+        $jmlh_alternatif = $alternatif->count();
+        $jmlh_crip = $crip->count();
+        $jmlhAlterCrip = $alterCrip->count();
+        $jmlhPenjabaranNilai = $penjabaranNilai->count();
+
+        $bobot = [];
+        foreach ($kriteria as $krit){
+            $bobot[$krit->id] = $krit->bobot;
+        }
 
         $kode_krit = [];
+        $normalisasi = [];
+
         foreach ($kriteria as $krit)
         {
             $kode_krit[$krit->id] = [];
+            $normalisasi[$krit->id] = [];
             foreach ($alternatif as $al)
             {
                 foreach ($al->crip as $crip)
                 {
                     if ($crip->kriteria->id == $krit->id)
                     {
-                        $kode_krit[$krit->id][] = $crip->nilai_crip;
+                        $kode_krit[$krit->id][] = pow($crip->nilai_crip,2);
                     }
                 }
             }
+            $kode_krit[$krit->id] = array_sum($kode_krit[$krit->id]);
 
-            if ($krit->atribut == 'cost')
-            {
-                $kode_krit[$krit->id] = min($kode_krit[$krit->id]);
-            } elseif ($krit->atribut == 'benefit')
-            {
-                $kode_krit[$krit->id] = max($kode_krit[$krit->id]);
-            }
-        };
-
-        $bobot = [];
-        $rangking = [];
-        $total = 0;
-
-        foreach ($kriteria as $krit){
-            $bobot[$krit->id] = $krit->bobot;
+//            if ($krit->atribut == 'cost')
+//            {
+//                $kode_krit[$krit->id] = min($kode_krit[$krit->id]);
+//            } elseif ($krit->atribut == 'benefit')
+//            {
+//                $kode_krit[$krit->id] = max($kode_krit[$krit->id]);
+//            }
         }
+//        return $kode_krit;
+
 
         return view('perhitungan.index')->with([
             'kriterias' => $kriteria,
             'alternatif' => $alternatif,
-            'penjabaran' => $penjabaran,
+            'penjabaran' => $alterCrip,
             'kode_krit'     => $kode_krit
         ]);
+
+    }
+
+    public function getNilai($alternatif,$kriteria){
+        $penjabaranNilai = PenjabaranNilai::with(['crip','alternatif'])
+            ->where('alternatif_id','=',$alternatif)
+            ->where('crip_id','=',$kriteria)->get();
+        foreach ($penjabaranNilai as $key => $value){
+            return $value->crip->nilai_crip;
+        }
     }
 
     /**

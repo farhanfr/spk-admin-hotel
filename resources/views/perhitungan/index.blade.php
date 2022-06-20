@@ -183,12 +183,12 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @php
-                            print("<pre>".print_r($bobot,true)."</pre>");
-                                print("<pre>".print_r($normalisasiBobotArray,true)."</pre>");
-                                print("<pre>".print_r($normalisasiBobotArray[0][11],true)."</pre>");
-                                $solusiIdealPositifArray = []
-                        @endphp
+{{--                        @php--}}
+{{--                            print("<pre>".print_r($bobot,true)."</pre>");--}}
+{{--                                print("<pre>".print_r($normalisasiBobotArray,true)."</pre>");--}}
+{{--                                print("<pre>".print_r($normalisasiBobotArray[0][11],true)."</pre>");--}}
+{{--                                $solusiIdealPositifArray = []--}}
+{{--                        @endphp--}}
                         @foreach($kriterias as $key1 => $data)
 {{--                            @php $solusiIdealPositif[$key1] = [] @endphp--}}
                             <tr>
@@ -227,7 +227,9 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @php $solusiIdealNegatifArray = [] @endphp
+{{--                        print("<pre>".print_r($normalisasiBobotArray,true)."</pre>");--}}
+                        @php
+                            $solusiIdealNegatifArray = [] @endphp
                         @foreach($kriterias as $key1 => $data)
 {{--                            @php $solusiIdealNegatif = [] @endphp--}}
                             <tr>
@@ -263,8 +265,7 @@
                         <tbody>
 
                         @php
-                            echo count($solusiIdealPositifArray);
-                            print_r($solusiIdealPositifArray);
+
                             $totalPositif = [];
                         @endphp
 
@@ -298,10 +299,10 @@
                         </thead>
                         <tbody>
 
-                        @php
-                            echo count($solusiIdealNegatifArray);
-                            print_r($solusiIdealNegatifArray);
-                        @endphp
+{{--                        @php--}}
+{{--                            echo count($solusiIdealNegatifArray);--}}
+{{--                            print_r($solusiIdealNegatifArray);--}}
+{{--                        @endphp--}}
 
                         @foreach($alternatif as $key1 => $data)
                             @php $totalNegatif[$key1] = 0   @endphp

@@ -202,129 +202,193 @@
     <!-- offcanvas-mobile-menu end -->
     <!-- Header end -->
 
-    <!-- Hero section start -->
-    <section class="bg-[#FFFFFF] relative before:absolute before:w-1/2 lg:before:w-[calc(50%_-_35px)] xl:before:w-[calc(50%_-_65px)] before:h-full before:top-0 before:right-0 before:content-[''] before:bg-[#ECFAF7] pt-[130px] lg:pt-[80px] xl:pt-[0px] mb-[70px] lg:mb-[0px]">
-        <div class="hero-slider overflow-hidden">
-            <div class="swiper-container">
-                <div class="swiper-wrapper">
-                    <!-- swiper-slide start -->
-                    <div class="swiper-slide lg:h-[700px] xl:h-[950px] xs:h-[auto] flex flex-wrap items-center">
-                        <div class="container">
-                            <div class="grid grid-cols-12">
-                                <div class="col-span-12 lg:col-span-5 xl:col-span-6">
-                                    <div class="slider-content max-w-[560px]">
-                                        <div class="relative mb-5 sub_title">
-                                            <span class="text-base text-secondary block">Pencarian kos dengan sistem pendukung keputusan</span>
-                                        </div>
-                                        <h1 class="font-recoleta text-primary text-[36px] sm:text-[50px] md:text-[68px] lg:text-[50px] leading-tight xl:text-2xl title">
-                                            <span>Cari kos berdasarkan bobot yang anda isi</span>
-                                        </h1>
-
-                                        <p class="text-base text-[#494949] mt-5 mb-8 text max-w-[570px]">
-                                            Bobot yang anda isi menentukan hasil pencarian yang akan di hitung oleh sistem pendukung keputusan dengan menggunakan metode TOPSIS
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="col-span-12 lg:col-span-7 xl:col-span-6">
-                                    <div class="relative mt-10 md:mt-0 lg:absolute lg:right-0 lg:bottom-0">
-                                        <img class="hero_image lg:max-w-[550px] xl:max-w-[650px] 2xl:max-w-[750px] 3xl:max-w-[866px]" src="assets/images/hero/hernan-lucio.png" width="866" height="879" alt="hero image">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- swiper-slide end-->
-                    <!-- swiper-slide start -->
-                    <div class="swiper-slide lg:h-[700px] xl:h-[950px] xs:h-[auto] flex flex-wrap items-center">
-                        <div class="container">
-                            <div class="grid grid-cols-12">
-                                <div class="col-span-12 lg:col-span-5 xl:col-span-6">
-                                    <div class="slider-content max-w-[560px]">
-                                        <div class="relative mb-5 sub_title">
-                                            <span class="text-base text-secondary block">A new way to find Properties</span>
-                                        </div>
-                                        <h1 class="font-recoleta text-primary text-[36px] sm:text-[50px] md:text-[68px] lg:text-[50px] leading-tight xl:text-2xl title">
-                                            <span>Modern, Creative & Luxury Homes</span>
-                                        </h1>
-
-                                        <p class="text-base text-[#494949] mt-5 mb-8 text">
-                                            Huge number of propreties availabe here for buy, and sell, also you
-                                            can find here co-living property, So you have lots of opportunity
-                                        </p>
-                                        <div class="inline-block mb-[60px] hero_btn">
-                                            <a href="contact-us.html" class="before:rounded-md before:block before:absolute before:left-auto before:right-0 before:inset-y-0 before:-z-[1] before:bg-secondary before:w-0 hover:before:w-full hover:before:left-0 hover:before:right-auto before:transition-all leading-none px-[20px] py-[15px] capitalize font-medium text-white text-[14px] xl:text-[16px] relative after:block after:absolute after:inset-0 after:-z-[2] after:bg-primary after:rounded-md after:transition-all block">Contact
-                                                us</a>
-                                        </div>
-                                        <ul class="flex flex-wrap list-none">
-                                            <li class="block">
-                                                <span class="font-recoleta text-secondary text-lg"><span>20</span> <span>k+</span></span>
-                                                <p>Properties</p>
-                                            </li>
-                                            <li class="block pl-[25px] sm:pl-[40px] md:pl-[60px]">
-                                                <span class="font-recoleta text-secondary text-lg"><span>12</span> <span>k+</span></span>
-                                                <p>Customers</p>
-                                            </li>
-                                            <li class="block pl-[25px] sm:pl-[40px] md:pl-[60px]">
-                                                <span class="font-recoleta text-secondary text-lg"><span>160</span> <span>+</span></span>
-                                                <p>Awards Win</p>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="col-span-12 lg:col-span-7 xl:col-span-6">
-                                    <div class="relative mt-10 md:mt-0 lg:absolute lg:right-0 lg:bottom-0">
-                                        <img class="hero_image lg:max-w-[550px] xl:max-w-[650px] 2xl:max-w-[750px] 3xl:max-w-[866px]" src="assets/images/hero/home-2.png" width="906" height="950" alt="hero image">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- swiper-slide end-->
-                </div>
-            </div>
-
-        </div>
-
-    </section>
-    <!-- Hero section end -->
-
-
-    <!-- Addvanced search tab start -->
-    <div class="mt-[80px] lg:mt-[120px] xl:mt-[-160px] relative z-[2] pl-[40px] lg:pl-[50px] xl:pl-[0px]">
+    <!-- Featured Properties Start -->
+    <section class="featured-properties py-[80px] lg:py-[120px]">
         <div class="container">
-            <div class="grid grid-cols-12">
-                <div class="col-span-12 relative">
-                    <ul class="tab-nav search-tab inline-flex px-[15px] sm:px-[30px] py-[22px] border-l border-t border-r border-solid border-[#016450] border-opacity-25 rounded-tl-[15px] rounded-tr-[15px] bg-white">
-                        <li data-tab="buy" class="mr-[5px] sm:mr-[10px] md:mr-[46px] my-1 active"><button class="font-recoleta leading-none px-[5px] sm:px-[10px] capitalize text-primary transition-all text-base xl:text-[22px] before:absolute before:left-auto before:right-0 before:bottom-[-32px] before:w-0 before:h-[2px] before:content-[''] before:bg-secondary relative before:transition-all ease-out">Cari Kos-kosan</button>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-span-12 selectricc-border-none">
-                    <div id="buy" class="tab-content bg-white border border-solid border-[#016450] border-opacity-25 rounded-bl-[15px] rounded-br-[15px] rounded-tr-[15px] px-[15px] sm:px-[30px] py-[40px] active">
-                        <form action="{{route('user.search')}}" method="POST">
-                            @csrf
-                            <div class="advanced-searrch flex flex-wrap items-center -mb-[45px]">
-                                @foreach($dataKriteria as $data)
-                                    <div class="advanced-searrch-list flex items-center lg:border-r lg:border-[#D6D4D4] lg:mr-[40px] xl:mr-[50px] last:mr-0 last:border-r-0 mb-[45px]">
-                                        <div class="flex-1">
-
-                                            <label for="{{$data->kode}}" class="font-recoleta block capitalize text-primary text-[18px] xl:text-[25px] leading-none mb-1">{{$data->nama}}</label>
-                                            <input id="{{$data->kode}}" type="number" step=".01" max="1" min="0" name="{{$data->kode}}" placeholder="{{$data->nama}}" class="text-tiny placeholder:text-body leading-none font-light pr-3 focus:outline-none w-full">
-                                        </div>
-                                    </div>
+            <div class="card-body">
+                            @php $bobot = [] @endphp
+                            @foreach($kriterias as $key1 => $krit)
+                                <?php $bobot[$key1] = $krit->bobot ?>
+                            @endforeach
+                        @php $normalisasiArray=[[]] @endphp
+                        @foreach($alternatif as $key1 => $data)
+                                @foreach($data->crip as $key2 => $crip)
+                                    <?php
+                                    $normalisasi = ($crip->nilai_crip / sqrt($kode_krit[$crip->kriteria->id]));
+                                    $normalisasiArray[$key2][$key1] = $normalisasi;
+                                    ?>
                                 @endforeach
-                                    <div class="advanced-searrch-list flex items-center lg:border-r lg:border-[#D6D4D4] lg:mr-[40px] xl:mr-[50px] last:mr-0 last:border-r-0 mb-[45px] search-list">
-                                        <button class="search-properties-btn" type="submit">
-                                            Cari Kos Sekarang
-                                        </button>
-                                    </div>
+                        @endforeach
+                        @php
+                            $normalisasiBobotArray =[[]]
+                        @endphp
+                        @foreach($alternatif as $key1 => $data)
+                                @foreach($data->crip as $key2 => $crip)
+                                    @php
+                                        $normalisasi = ($crip->nilai_crip / sqrt($kode_krit[$crip->kriteria->id]));
+                                        $normalisasiBobotArray[$key2][$key1] = $normalisasiArray[$key2][$key1] * $bobot[$key2];
+                                    @endphp
+                                @endforeach
+                        @endforeach
+                        @foreach($kriterias as $key1 => $data)
+                                @foreach($alternatif as $key2 => $alternatifs)
+                                    {{--                                    $normalisasi = ($crip->nilai_crip / sqrt($kode_krit[$crip->kriteria->id]));--}}
+                                    @php
+                                        $solusiIdealPositif[$key1][$key2] = $normalisasiBobotArray[$key1][$key2]
+                                    @endphp
+                                @endforeach
+                                @php
+                                    if ($data->atribut == 'cost'){
+                                        $solusiIdealPositif[$key1] = min($solusiIdealPositif[$key1]);
+                                    }elseif ($data->atribut == 'benefit'){
+                                        $solusiIdealPositif[$key1] = max($solusiIdealPositif[$key1]);
+                                    }
+                                    $solusiIdealPositifArray[$key1] = $solusiIdealPositif[$key1];
+                                @endphp
+                        @endforeach
+                        @php
+                            $solusiIdealNegatifArray = [] @endphp
+                        @foreach($kriterias as $key1 => $data)
+                                @foreach($alternatif as $key2 => $alternatifs)
+                                    @php
+                                        $solusiIdealNegatif[$key1][$key2] = $normalisasiBobotArray[$key1][$key2]
+                                    @endphp
+                                @endforeach
+                                @php
+                                    if ($data->atribut == 'cost'){
+                                        $solusiIdealNegatif[$key1] = max($solusiIdealNegatif[$key1]);
+                                    }elseif ($data->atribut == 'benefit'){
+                                        $solusiIdealNegatif[$key1] = min($solusiIdealNegatif[$key1]);
+                                    }
+                                    $solusiIdealNegatifArray[$key1] = $solusiIdealNegatif[$key1];
+                                @endphp
+                        @endforeach
+                        @php
+                            $totalPositif = [];
+                        @endphp
+
+                        @foreach($alternatif as $key1 => $data)
+                            @php $totalPositif[$key1] = 0   @endphp
+                                @foreach($kriterias as $key2 => $data2)
+                                    @php
+                                        $totalPositif[$key1] += pow(($solusiIdealPositifArray[$key2] - $normalisasiBobotArray[$key2][$key1] ),2);
+                                    @endphp
+                                @endforeach
+                                @php
+                                    $totalPositif[$key1] = sqrt($totalPositif[$key1])
+                                @endphp
+                        @endforeach
+                        @foreach($alternatif as $key1 => $data)
+                            @php $totalNegatif[$key1] = 0   @endphp
+                                @foreach($kriterias as $key2 => $data2)
+                                    @php
+                                        $totalNegatif[$key1] += pow(($solusiIdealNegatifArray[$key2] - $normalisasiBobotArray[$key2][$key1] ),2)
+                                    @endphp
+                                @endforeach
+                                @php
+                                    $totalNegatif[$key1] = sqrt($totalNegatif[$key1])
+                                @endphp
+                        @endforeach
+                        @foreach($alternatif as $key1 => $data)
+                            @php $preferensi[$key1] = 0   @endphp
+                                @php
+                                    $preferensi[$key1] = $totalNegatif[$key1] / ($totalPositif[$key1] + $totalNegatif[$key1])
+                                @endphp
+                                @php $rangking[] = [
+                                    'kode' => $data->kode_alternatif,
+                                    'nama'  => $data->nama_alternatif,
+                                    'keterangan' => $data->keterangan,
+                                    'total' => $preferensi[$key1]
+                                ]; @endphp
+                        @endforeach
+            </div>
+            <div class="grid grid-cols-12">
+                <div class="col-span-12">
+                    <span class="text-secondary text-tiny inline-block mb-2">Berdasarkan perhitungan dari Sistem Pendukung Keputusan dengan metode TOPSIS</span>
+                </div>
+                <div class="col-span-12 flex flex-wrap flex-col md:flex-row items-start justify-between mb-[50px]">
+                    <div class="mb-5 lg:mb-0">
+
+                        <h2 class="font-recoleta text-primary text-[24px] sm:text-[30px] xl:text-xl capitalize">
+                            Hasil Rekomendasi Kos<span class="text-secondary">.</span></h2>
+                    </div>
+                </div>
+                @php
+                    usort($rangking, function($a, $b)
+                    {
+                        return $b['total'] <=> $a['total'];
+                    });
+
+                    $rank = 1;
+                @endphp
+                <div class="col-span-12">
+                    <div id="all-properties" class="properties-tab-content active">
+                        <div class="">
+                            <h4>Kesimpulan</h4>
+                            <p>Berdasarkan pencarian yang anda lakukan dengan mengisi bobot pada halaman sebelumnya dapat disimpulkan bahwa
+                                <b>{{$rangking[0]['nama']}}</b> dengan kode alternatif <b>{{$rangking[0]['kode']}}</b>
+                                merupakan rekomendasi terbaik untuk anda
+                            </p>
+                            <div class="overflow-hidden rounded-md drop-shadow-[0px_2px_15px_rgba(0,0,0,0.1)] bg-[#FFFDFC] text-center transition-all duration-300 hover:-translate-y-[10px]">
+                                <div class="relative">
+                                    <a href="properties-details.html" class="block">
+                                        <img src="assets/images/properties/properties4.jpg" class="w-full h-full" loading="lazy" width="370" height="266" alt="Elite Garden Resedence.">
+                                    </a>
+                                </div>
+
+                                <div class="py-[20px] px-[20px]">
+                                    <h3><a href="properties-details.html" class="font-recoleta leading-tight text-[22px] xl:text-lg text-primary">{{$rangking[0]['nama']}}</a></h3>
+                                    <h4><a href="properties-details.html" class="font-light text-tiny text-secondary underline">{{$rangking[0]['keterangan']}}</a></h4>
+                                </div>
                             </div>
-                        </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-span-12 flex flex-wrap flex-col md:flex-row items-start justify-between mb-[50px]">
+                    <div class="mb-5 lg:mb-0">
+                        <h2 class="font-recoleta text-primary text-[24px] sm:text-[30px] xl:text-xl capitalize">
+                            List Urutan Kos Rekomendasi<span class="text-secondary">.</span></h2>
+                    </div>
+                </div>
+                <div class="col-span-12">
+                    <div id="all-properties" class="properties-tab-content active">
+                        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-[30px]">
+                            @foreach($rangking as $t)
+{{--                                <tr>--}}
+{{--                                    <td>{{$t['kode']}}</td>--}}
+{{--                                    <td>{{$t['nama']}}</td>--}}
+{{--                                    <td>{{$t['total']}}</td>--}}
+{{--                                    <td>{{$rank++}}</td>--}}
+{{--                                </tr>--}}
+                                <div class="overflow-hidden rounded-md drop-shadow-[0px_2px_15px_rgba(0,0,0,0.1)] bg-[#FFFDFC] text-center transition-all duration-300 hover:-translate-y-[10px]">
+                                    <div class="relative">
+                                        <a href="properties-details.html" class="block">
+                                            <img src="assets/images/properties/properties4.jpg" class="w-full h-full" loading="lazy" width="370" height="266" alt="Elite Garden Resedence.">
+                                        </a>
+{{--                                        <div class="flex flex-wrap flex-col absolute top-5 right-5">--}}
+{{--                                            <button class="flex flex-wrap items-center bg-[rgb(1,97,78,0.8)] p-[5px] rounded-[2px] text-white mb-[5px] text-xs"><img class="mr-1" src="assets/images/icon/camera.png" loading="lazy" width="13" height="10" alt="camera icon">07</button>--}}
+{{--                                            <button class="flex flex-wrap items-center bg-[rgb(1,97,78,0.8)] p-[5px] rounded-[2px] text-white text-xs"><img class="mr-1" src="assets/images/icon/video.png" loading="lazy" width="14" height="10" alt="camera icon">08</button>--}}
+{{--                                        </div>--}}
+                                        <span class="absolute bottom-5 left-5 bg-[#FFFDFC] p-[5px] rounded-[2px] text-secondary leading-none text-[14px] font-normal capitalize">{{$rank++}}</span>
+                                    </div>
+
+                                    <div class="py-[20px] px-[20px]">
+                                        <h3><a href="properties-details.html" class="font-recoleta leading-tight text-[22px] xl:text-lg text-primary">{{$t['nama']}}</a></h3>
+                                        <h4><a href="properties-details.html" class="font-light text-tiny text-secondary underline">{{$t['keterangan']}}</a></h4>
+{{--                                        <span class="font-light text-sm">Added: 25 November, 2021</span>--}}
+{{--                                        <div class="before:block before:absolute before:top-1/2 before:-translate-y-1/2 before:h-[1px] before:w-full before:z-[-1] before:bg-[#E0E0E0] relative"><span class="font-recoleta text-base text-primary px-[15px] bg-white">Price: $255300</span></div>--}}
+{{--                                        <p class="font-light">1230 Sq.fit - 4 Bed - 3 Bath - 2 Garage</p>--}}
+                                    </div>
+                                </div>
+                            @endforeach
+
+                        </div>
                     </div>
                 </div>
             </div>
+
         </div>
-    </div>
-    <!-- Addvanced search tab end -->
+    </section>
+    <!-- Featured Properties End -->
 
 @endsection

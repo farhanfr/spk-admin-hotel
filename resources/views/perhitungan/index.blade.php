@@ -150,9 +150,10 @@
                         </tr>
                         </thead>
                         <tbody>
+{{--                        print("<pre>".print_r($normalisasiArray,true)."</pre>");--}}
+{{--                        print("<pre>".print_r($normalisasiArray[0][11],true)."</pre>");--}}
                         @php
-                        print("<pre>".print_r($normalisasiArray,true)."</pre>");
-                        print("<pre>".print_r($normalisasiArray[0][11],true)."</pre>");
+
 
                             $normalisasiBobotArray =[[]]
                         @endphp

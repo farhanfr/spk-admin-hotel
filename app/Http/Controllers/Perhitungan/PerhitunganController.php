@@ -26,7 +26,8 @@ class PerhitunganController extends Controller
         foreach ($crip as $keyK => $dataCr) {
             $cripId[] = $dataCr->id;
         }
-        $alternatif = Alternatif::all();
+//        $alternatif = Alternatif::all();
+        $alternatif = Alternatif::with(['crip'])->get();
         foreach ($alternatif as $keyK => $dataAl) {
             $alternatifId[] = $dataAl->id;
         }

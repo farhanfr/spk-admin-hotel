@@ -9,6 +9,7 @@
                 <h6 class="m-0 font-weight-bold text-primary">Perhitungan</h6>
             </div>
             <!-- Card Body -->
+            @if(count($kriterias) > 0)
             <div class="card-body">
                 <h4>Data Kriteria</h4>
                 <div class="table-responsive">
@@ -134,7 +135,11 @@
                                     <td>{{$normalisasiArray[$key2][$key1]}}</td>
                                 @endforeach
                             </tr>
+{{--                            @php--}}
+{{--                                print("<pre>".print_r($normalisasiArray[$key2],true)."</pre>");--}}
+{{--                            @endphp--}}
                         @endforeach
+
                         </tbody>
                     </table>
                 </div>
@@ -366,22 +371,22 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @php
-                            usort($rangking, function($a, $b)
-                            {
-                                return $b['total'] <=> $a['total'];
-                            });
+                            @php
+                                usort($rangking, function($a, $b)
+                                {
+                                    return $b['total'] <=> $a['total'];
+                                });
 
-                            $rank = 1;
-                        @endphp
-                        @foreach($rangking as $t)
-                            <tr>
-                                <td>{{$t['kode']}}</td>
-                                <td>{{$t['nama']}}</td>
-                                <td>{{$t['total']}}</td>
-                                <td>{{$rank++}}</td>
-                            </tr>
-                        @endforeach
+                                $rank = 1;
+                            @endphp
+                            @foreach($rangking as $t)
+                                <tr>
+                                    <td>{{$t['kode']}}</td>
+                                    <td>{{$t['nama']}}</td>
+                                    <td>{{$t['total']}}</td>
+                                    <td>{{$rank++}}</td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -393,6 +398,11 @@
                 </p>
 
             </div>
+            @else
+                <div class="card-body">
+                    Silahkan lengkapi data kriteria, nilai crips, dan alternatif
+                </div>
+            @endif
         </div>
     </div>
 @endsection

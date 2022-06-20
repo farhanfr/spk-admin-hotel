@@ -354,30 +354,17 @@
                     <div id="all-properties" class="properties-tab-content active">
                         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-[30px]">
                             @foreach($rangking as $t)
-{{--                                <tr>--}}
-{{--                                    <td>{{$t['kode']}}</td>--}}
-{{--                                    <td>{{$t['nama']}}</td>--}}
-{{--                                    <td>{{$t['total']}}</td>--}}
-{{--                                    <td>{{$rank++}}</td>--}}
-{{--                                </tr>--}}
                                 <div class="overflow-hidden rounded-md drop-shadow-[0px_2px_15px_rgba(0,0,0,0.1)] bg-[#FFFDFC] text-center transition-all duration-300 hover:-translate-y-[10px]">
                                     <div class="relative">
                                         <a href="properties-details.html" class="block">
                                             <img src="assets/images/properties/properties4.jpg" class="w-full h-full" loading="lazy" width="370" height="266" alt="Elite Garden Resedence.">
                                         </a>
-{{--                                        <div class="flex flex-wrap flex-col absolute top-5 right-5">--}}
-{{--                                            <button class="flex flex-wrap items-center bg-[rgb(1,97,78,0.8)] p-[5px] rounded-[2px] text-white mb-[5px] text-xs"><img class="mr-1" src="assets/images/icon/camera.png" loading="lazy" width="13" height="10" alt="camera icon">07</button>--}}
-{{--                                            <button class="flex flex-wrap items-center bg-[rgb(1,97,78,0.8)] p-[5px] rounded-[2px] text-white text-xs"><img class="mr-1" src="assets/images/icon/video.png" loading="lazy" width="14" height="10" alt="camera icon">08</button>--}}
-{{--                                        </div>--}}
                                         <span class="absolute bottom-5 left-5 bg-[#FFFDFC] p-[5px] rounded-[2px] text-secondary leading-none text-[14px] font-normal capitalize">{{$rank++}}</span>
                                     </div>
 
                                     <div class="py-[20px] px-[20px]">
                                         <h3><a href="properties-details.html" class="font-recoleta leading-tight text-[22px] xl:text-lg text-primary">{{$t['nama']}}</a></h3>
                                         <h4><a href="properties-details.html" class="font-light text-tiny text-secondary underline">{{$t['keterangan']}}</a></h4>
-{{--                                        <span class="font-light text-sm">Added: 25 November, 2021</span>--}}
-{{--                                        <div class="before:block before:absolute before:top-1/2 before:-translate-y-1/2 before:h-[1px] before:w-full before:z-[-1] before:bg-[#E0E0E0] relative"><span class="font-recoleta text-base text-primary px-[15px] bg-white">Price: $255300</span></div>--}}
-{{--                                        <p class="font-light">1230 Sq.fit - 4 Bed - 3 Bath - 2 Garage</p>--}}
                                     </div>
                                 </div>
                             @endforeach

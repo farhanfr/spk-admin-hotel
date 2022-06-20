@@ -11,7 +11,7 @@
             </div>
             <!-- Card Body -->
             <div class="card-body">
-                <form action="{{route('penjabaran.update',['id' => Request::segment(3)])}}" method="POST" class="col-md-12">
+                <form action="{{route('penjabaran.update',['id' => Request::segment(4)])}}" method="POST" class="col-md-12">
                     @csrf
                     @foreach($kriterias as $kriteria)
                         <div class="form-group">

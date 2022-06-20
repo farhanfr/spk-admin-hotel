@@ -11,7 +11,7 @@
             </div>
             <!-- Card Body -->
             <div class="card-body">
-                <form action="{{route('crip.update',['id' => Request::segment(3)])}}" method="POST" class="col-md-12">
+                <form action="{{route('crip.update',['id' => Request::segment(4)])}}" method="POST" class="col-md-12">
                     @csrf
                     <div class="form-group">
                         <label for="kriteria">Kriteria <span class="text-danger">*</span></label>

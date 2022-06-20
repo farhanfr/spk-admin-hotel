@@ -76,8 +76,7 @@ class KriteriaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $update = Kriteria::find($id)
-            ->update($request->all());
+        $update = Kriteria::find($id)->update($request->all());
         if (!$update) {
             return back();
         }

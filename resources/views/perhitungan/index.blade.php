@@ -386,6 +386,11 @@
                     </table>
                 </div>
 
+                <h4>Kesimpulan</h4>
+                <p>Berdasarkan perhitungan menggunakan metode TOPSIS seperti diatas,
+                    maka yang merupakan kost rekomendasi untuk mahasiswa ITS seperti kriteria-kriteria diatas yaitu
+                    <b>{{$rangking[0]['nama']}}</b> dengan kode alternatif <b>{{$rangking[0]['kode']}}</b>
+                </p>
 
             </div>
         </div>

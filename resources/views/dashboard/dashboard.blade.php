@@ -89,7 +89,7 @@
             </div>
             <!-- Card Body -->
             <div class="card-body">
-                Selamat datang di Admin Panel Sistem Pendukung Keputusan Rekomendasi Hotel di Malang
+                Selamat datang di Admin Panel Sistem Pendukung Keputusan Rekomendasi Kost Wilayah Surabaya Menggunakan Metode TOPSIS
             </div>
         </div>
     </div>

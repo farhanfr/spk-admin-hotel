@@ -43,8 +43,8 @@
         <hr class="sidebar-divider my-0">
 
         <!-- Nav Item - Dashboard -->
-        <li class="nav-item {{\Illuminate\Support\Facades\Request::segment(1) == 'dashboard' ? 'active' : ''}}">
-            <a class="nav-link" href="{{url('/dashboard')}}">
+        <li class="nav-item {{\Illuminate\Support\Facades\Request::segment(2) == 'dashboard' ? 'active' : ''}}">
+            <a class="nav-link" href="{{route('dashboard')}}">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Dashboard</span></a>
         </li>
@@ -59,31 +59,31 @@
 
         <!-- Nav Item - Pages Collapse Menu -->
 
-        <li class="nav-item {{\Illuminate\Support\Facades\Request::segment(1) == 'kriteria' ? 'active' : ''}}">
+        <li class="nav-item {{\Illuminate\Support\Facades\Request::segment(2) == 'kriteria' ? 'active' : ''}}">
             <a class="nav-link" href="{{route('kriteria')}}" >
                 <i class="fas fa-fw fa-cog"></i>
                 <span>Kriteria</span>
             </a>
         </li>
-        <li class="nav-item {{\Illuminate\Support\Facades\Request::segment(1) == 'crip' ? 'active' : ''}}">
+        <li class="nav-item {{\Illuminate\Support\Facades\Request::segment(2) == 'crip' ? 'active' : ''}}">
             <a class="nav-link" href="{{route('crip')}}" >
                 <i class="fas fa-fw fa-cog"></i>
                 <span>Nilai Crips (Subkriteria)</span>
             </a>
         </li>
-        <li class="nav-item {{\Illuminate\Support\Facades\Request::segment(1) == 'alternatif' ? 'active' : ''}}">
+        <li class="nav-item {{\Illuminate\Support\Facades\Request::segment(2) == 'alternatif' ? 'active' : ''}}">
             <a class="nav-link  " href="{{route('alternatif')}}">
                 <i class="fas fa-fw fa-cog"></i>
                 <span>Alternatif</span>
             </a>
         </li>
-        <li class="nav-item {{\Illuminate\Support\Facades\Request::segment(1) == 'penjabaran' ? 'active' : ''}}">
+        <li class="nav-item {{\Illuminate\Support\Facades\Request::segment(2) == 'penjabaran' ? 'active' : ''}}">
             <a class="nav-link" href="{{route('penjabaran')}}" >
                 <i class="fas fa-fw fa-cog"></i>
                 <span>Penjabaran Data</span>
             </a>
         </li>
-        <li class="nav-item {{\Illuminate\Support\Facades\Request::segment(1) == 'perhitungan' ? 'active' : ''}}">
+        <li class="nav-item {{\Illuminate\Support\Facades\Request::segment(2) == 'perhitungan' ? 'active' : ''}}">
             <a class="nav-link" href="{{route('perhitungan')}}" >
                 <i class="fas fa-fw fa-cog"></i>
                 <span>Perhitungan</span>
@@ -178,8 +178,8 @@
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <h1 class="h3 mb-0 text-gray-800">@yield('title')</h1>
-                    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                            class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+{{--                    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i--}}
+{{--                            class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>--}}
                 </div>
 
                 @yield('content')

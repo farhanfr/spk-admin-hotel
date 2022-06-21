@@ -89,7 +89,21 @@
             </div>
             <!-- Card Body -->
             <div class="card-body">
-                Selamat datang di Admin Panel Sistem Pendukung Keputusan Rekomendasi Kost Wilayah Surabaya Menggunakan Metode TOPSIS
+                <h5>Selamat datang di Admin Panel Sistem Pendukung Keputusan Rekomendasi Kost Wilayah Surabaya Menggunakan Metode TOPSIS</h5>
+
+                <h5><b>Cara penggunaan dashboard admin :</b></h5>
+            <ol>
+                <li>Mengisi kriteria terlebih dahulu dengan masukkan data berupa kode kriteria, nama kriteria,
+                    atribut kriteria (benefit/cost) dan bobot kriteria (tipe nilai bobot koma) pada menu Kriteria</li>
+                <li>Mengisi nilai crips pada setiap kriteria yang telah ditambahkan sebelumnya dengan memasukkan
+                    data kriteria, nama crips dan nilai crips pada menu Nilai Crips (Subkriteria)</li>
+                <li>Mengisi alternatif dengan memasukkan kode alternatif, nama alternatif dan keterangan
+                    pada menu Alternatif</li>
+                <li>Setelah mengisi alternatif, kriteria & crips, maka anda bisa melihat penjabaran data
+                    untuk mempermudah melihat data yang telah diinputkan sebelumnya & anda juga bisa mengubah nilai
+                    crips setiap alternatif pada menu Penjabaran Data</li>
+                <li>Anda dapat melihat perhitungan TOPSIS pada menu Perhitungan</li>
+            </ol>
             </div>
         </div>
     </div>
